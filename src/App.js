@@ -12,6 +12,7 @@ function App() {
   const [newItem, setNewItem] = useState('')
   const [search, setSearch] = useState('')
   const [reqType, setReqType] = useState('')
+  const [loading, setLoading] = useState(true)
   const bT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6IkRpb2dvIiwicm9sZXMiOlsyMDAxLDE5ODQsNTE1MF19LCJpYXQiOjE2ODk0MjE1MjcsImV4cCI6MTcyMDk1NzUyN30.jZU3PeFgh-kTn7Gk_U5vjwijsfTVNVKHPHs-qWqohyw'
   useEffect(() => {
     const updateDB = async () => {
@@ -83,6 +84,7 @@ function App() {
       } catch (err) {
         console.log(err.stack);
       }
+      setloading(false)
     };
     fetchItems();
   }, []);
@@ -152,6 +154,7 @@ function App() {
         setSearch={setSearch}
       />
       <Content
+        loading={loading}
         search={search}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
