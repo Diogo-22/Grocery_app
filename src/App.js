@@ -84,7 +84,7 @@ function App() {
       } catch (err) {
         console.log(err.stack);
       }
-      setloading(false)
+      setLoading(false)
     };
     fetchItems();
   }, []);
