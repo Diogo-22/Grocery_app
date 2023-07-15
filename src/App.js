@@ -12,6 +12,7 @@ function App() {
   const [newItem, setNewItem] = useState('')
   const [search, setSearch] = useState('')
   const [reqType, setReqType] = useState('')
+  const bT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6IkRpb2dvIiwicm9sZXMiOlsyMDAxLDE5ODQsNTE1MF19LCJpYXQiOjE2ODk0MjE1MjcsImV4cCI6MTcyMDk1NzUyN30.jZU3PeFgh-kTn7Gk_U5vjwijsfTVNVKHPHs-qWqohyw'
   useEffect(() => {
     const updateDB = async () => {
       if (reqType === ''){
@@ -23,7 +24,7 @@ function App() {
           method: "PUT",
           headers: {
             "Content-type": "application/json; charset=UTF-8",
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6IkRpb2dvIiwicm9sZXMiOlsyMDAxLDE5ODQsNTE1MF19LCJpYXQiOjE2ODkxNTIwMDYsImV4cCI6MTY4OTIzODQwNn0.pAKRNFOS7tt3kR_ZN2BGQi1AzzkygOVEeaT7l2une5c'
+            'Authorization': 'Bearer ' + bT
           },
           body: JSON.stringify(
               {
@@ -42,7 +43,7 @@ function App() {
           method: "POST",
           headers: {
             "Content-type": "application/json",
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6IkRpb2dvIiwicm9sZXMiOlsyMDAxLDE5ODQsNTE1MF19LCJpYXQiOjE2ODkxNTIwMDYsImV4cCI6MTY4OTIzODQwNn0.pAKRNFOS7tt3kR_ZN2BGQi1AzzkygOVEeaT7l2une5c'
+            'Authorization': 'Bearer ' + bT
           },
           body: JSON.stringify(
               {
@@ -66,7 +67,7 @@ function App() {
       try {
         const response = await fetch(API_URL, {
           headers: {
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6IkRpb2dvIiwicm9sZXMiOlsyMDAxLDE5ODQsNTE1MF19LCJpYXQiOjE2ODkxNTIwMDYsImV4cCI6MTY4OTIzODQwNn0.pAKRNFOS7tt3kR_ZN2BGQi1AzzkygOVEeaT7l2une5c'
+            'Authorization': 'Bearer ' + bT
           }
         });
           const Items = await response.json();
@@ -117,7 +118,7 @@ function App() {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6IkRpb2dvIiwicm9sZXMiOlsyMDAxLDE5ODQsNTE1MF19LCJpYXQiOjE2ODkxNTIwMDYsImV4cCI6MTY4OTIzODQwNn0.pAKRNFOS7tt3kR_ZN2BGQi1AzzkygOVEeaT7l2une5c'
+       'Authorization': 'Bearer ' + bT
       },
       body: JSON.stringify({
          "id": id
